@@ -1,4 +1,5 @@
 import ExpenseItem from "./ExpenseItem";
+import './UI/Expenses.css';
 
 const Expenses = (props) => {
     return(
@@ -8,6 +9,5 @@ const Expenses = (props) => {
         </div>
     )
 }
-
 
 export default Expenses

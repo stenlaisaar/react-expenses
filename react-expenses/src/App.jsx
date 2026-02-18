@@ -1,4 +1,5 @@
 import ExpenseItem from './components/ExpenseItem.jsx';
+import './components/UI/Expenses.css';
 
 function App(){
   const expenses = [
@@ -16,11 +17,12 @@ function App(){
 
   return(
     <div className="App">
-      <ExpenseItem data={expenses[0]}/>
-      <ExpenseItem data={expenses[1]}/>
+      <div className="expenses">
+        <ExpenseItem data={expenses[0]}/>
+        <ExpenseItem data={expenses[1]}/>
+      </div>
     </div>
   );
 }
-
 
 export default App
