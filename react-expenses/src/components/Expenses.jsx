@@ -7,14 +7,14 @@ const Expenses = (props) => {
   const [selectedYear, setSelectedYear] = useState('2025')
 
   const filterChangeHandler = (year) => {
-    console.log('Expenses -> filterChangeHandler:', year)
     setSelectedYear(year)
   }
 
-  console.log('Expenses render - selectedYear:', selectedYear, 'items:', props.items)
+  const filteredExpenses = props.items.filter(expense => {
+    return expense.date.getFullYear().toString() === selectedYear
+  })
 
-  // The selected year is stored in state like a controlled input value.
-  const filteredExpenses = props.items
+  console.log('Expenses -> filteredExpenses:', filteredExpenses.length, 'items found for year', selectedYear)
 
   return (
     <div className='expenses'>
