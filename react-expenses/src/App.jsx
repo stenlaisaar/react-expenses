@@ -1,8 +1,9 @@
+import { useState } from 'react'
 import Expenses from './components/Expenses.jsx';
 import './components/UI/Expenses.css';
 
 function App(){
-  const expenses = [
+  const [expenses, setExpenses] = useState([
     {
       date: new Date(2025, 10 ,12),
       title: 'New book',
@@ -18,11 +19,15 @@ function App(){
       title: 'New bag.',
       price: 99.99
     }
-  ]
+  ])
+
+  const addExpenseHandler = (enteredExpense) => {
+    setExpenses(prevExpenses => [enteredExpense, ...prevExpenses])
+  }
 
   return(
     <div className="App">
-      <Expenses items={expenses} />
+      <Expenses items={expenses} onAddExpense={addExpenseHandler} />
     </div>
   );
 }
